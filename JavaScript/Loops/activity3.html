@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var students = [];
+
+        const info = [
+            {
+                firstName: "Allan",
+                lastName: "Rubilla",
+                course: "BSIT"
+            },
+            {
+                firstName: "Karl",
+                lastName: "Bijirano",
+                course: "BSIT"
+            },
+            {
+                firstName: "John",
+                lastName: "Anoc",
+                course: "BSIT"
+            },
+            {
+                firstName: "Maurice",
+                lastName: "Wiscap",
+                course: "BSIT"
+            },
+            {
+                firstName: "Earl",
+                lastName: "Cimafranca",
+                course: "BSIT"
+            }
+        ]
+
+
+        for (let i = 0; i < 5; i++) {
+            students.push({...info[i], studentID: i})
+            students.push(students);
+        }
+
+
+        let i = 0;
+        while (i < students.length - 1) {
+            let j = i + 1;
+            while (j < students.length) {
+                if (students[i].firstName > students[j].firstName) {
+                    let temp = students[i];
+                    students[i] = students[j];
+                    students[j] = temp;
+                }
+                j++;
+            }
+            i++;
+        }
+        console.log(students)
+
+        var students = [...students]
+
+        for (let index of students) {
+            let i = students.indexOf(index);
+            let j = i + 1;
+            while (j < students.length) {
+                if (students[i].lastName > students[j].lastName) {
+                    let temp = students[i];
+                    students[i] = students[j];
+                    students[j] = temp;
+                }
+                j++;
+            }
+        }
+
+        console.log(students)
+
+        var students = [...students]
+
+
+        let swapped;
+        do {
+            let j = i + 1;
+            while (j < students.length) {
+                if (students[i].studentID > students[j].studentID) {
+                    let temp = students[i];
+                    students[i] = students[j];
+                    students[j] = temp;
+                }
+                j++;
+            }
+            i++;
+        } while (i < students.length - 1);
+
+        console.log(students);
+    </script>
+</body>
+</html>

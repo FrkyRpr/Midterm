@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+
+</head>
+<body>
+    
+    <input type="text" id="num1">
+    <input type="text" id="num2">
+    
+    <h1 id="result">The answer is displayed here</h1>
+
+    <button type="button" onclick="addFunction()">Add the 2 numbers</button>
+    <button type="button" onclick="subFunction()">Subtract the 2 numbers</button>
+    <button type="button" onclick="multiplyFunction()">Multiply the 2 numbers</button>
+    <button type="button" onclick="divFunction()">Divide the 2 numbers</button>
+    
+
+    <script>
+        function addFunction() {
+            var a = parseInt(document.getElementById("num1").value);
+            var b = parseInt(document.getElementById("num2").value);
+            var c = a + b;
+            document.getElementById("result").innerHTML = "The answer is " + c;    
+        }
+        function subFunction() {
+            var a = parseInt(document.getElementById("num1").value);
+            var b = parseInt(document.getElementById("num2").value);
+            var c = a - b;
+            document.getElementById("result").innerHTML = "The answer is " + c;    
+        }
+        function multiplyFunction() {
+            var a = parseInt(document.getElementById("num1").value);
+            var b = parseInt(document.getElementById("num2").value);
+            var c = a * b;
+            document.getElementById("result").innerHTML = "The answer is " + c;    
+        }
+        function divFunction() {
+            var a = parseInt(document.getElementById("num1").value);
+            var b = parseInt(document.getElementById("num2").value);
+            var c = a / b;
+            document.getElementById("result").innerHTML = "The answer is " + c;    
+        }
+
+        
+
+
+
+    </script>
+
+</body>
+</html>

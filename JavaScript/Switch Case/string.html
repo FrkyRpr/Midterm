@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+
+<p id="text"></p>
+<p id="text1"></p>
+<p id="text2"></p>
+<p id="text3"></p>
+<!-- <p id="text4"></p> -->
+
+<button onclick="exampleFunction">click to execute</button>
+
+    <script>
+        var text = "This is a very long text"; 
+        var startPos = text.search("long");
+        var len = text.length;
+        var position = text.substr(startPos,len);3
+        var slice = text.slice(15,24);
+
+        document.getElementById("text").innerHTML = startPos;
+        document.getElementById("text1").innerHTML = len;
+        document.getElementById("text2").innerHTML = position;
+        document.getElementById("text3").innerHTML = slice;
+
+
+
+
+        //----------------------------------
+
+
+        var x = exampleFunction(10,20);
+        // document.getElementById("text4").innerHTML = x;
+
+        function exampleFunction (par1,par2) {
+            return par1 * par2;
+            //The function returns the product of p1 and p2
+        }
+
+        //----------------------------------
+
+    </script>
+
+</body>
+</html>

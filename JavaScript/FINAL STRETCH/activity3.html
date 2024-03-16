@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="output">This will be updated as you type</h1>
+    <label for="textInput">Enter some text: </label>
+    <input type="text" id="textInput" placeholder="Enter text">
+    <p id="counts">Counts will be updated here</p>
+
+    <script>
+        function countCharacters(inputString) {
+            let vowels = 0;
+            let consonants = 0;
+            let numbers = 0;
+            let specialCharacters = 0;
+            let whiteSpaces = 0;
+
+            inputString = inputString.toLowerCase();
+
+            for (let i = 0; i < inputString.length; i++) {
+                let char = inputString[i];
+                if (char.match(/[aeiou]/)) {
+                    vowels++;
+                } else if (char.match(/[a-z]/)) {
+                    consonants++;
+                } else if (char.match(/[0-9]/)) {
+                    numbers++;
+                } else if (char.match(/\s/)) {
+                    whiteSpaces++;
+                } else {
+                    specialCharacters++;
+                }
+            }
+
+            let countsOutput = `Vowels: ${vowels}<br>`;
+            countsOutput += `Consonants: ${consonants}<br>`;
+            countsOutput += `Numbers: ${numbers}<br>`;
+            countsOutput += `Special Characters: ${specialCharacters}<br>`;
+            countsOutput += `White Spaces: ${whiteSpaces}`;
+
+            document.getElementById("counts").innerHTML = countsOutput;
+        }
+
+        let inputElement = document.getElementById("textInput");
+        inputElement.addEventListener("input", function(event) {
+            let inputText = inputElement.value;
+            document.getElementById("output").textContent = inputText;
+            countCharacters(inputText);
+        });
+
+        inputElement.addEventListener("keyup", function(event) {
+            let inputText = inputElement.value;
+            document.getElementById("output").textContent = inputText;
+        });
+    </script>
+</body>
+</html>

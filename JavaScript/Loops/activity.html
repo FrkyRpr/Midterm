@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+            // Create global array without data inside named students
+            var students = [];
+
+            // Populate the array with an object 5 times using for loop
+            for (var i = 0; i < 5; i++) {
+                var student = {
+                    studentID: i + 1,
+                    firstName: "FirstName",
+                    lastName: "LastName",
+                    course: "Course"
+                };
+                students.push(student);
+            }
+
+            
+            // Sort the array by firstName using while loop
+            console.group("Sorting by firstName (while loop)");
+            var i = 0;
+            while (i < students.length - 1) {
+                var j = i + 1;
+                while (j < students.length) {
+                    if (students[i].firstName > students[j].firstName) {
+                        var temp = students[i];
+                        students[i] = students[j];
+                        students[j] = temp;
+                    }
+                    j++;
+                }
+                console.log(students);
+                i++;
+            } 
+            console.groupEnd();
+
+            // Sort the array by lastName using for/in loop
+            console.group("Sorting by lastName (for/in loop)");
+            for (var index1 in students) {
+                for (var index2 in students) {
+                    if (students[index1].lastName < students[index2].lastName) {
+                        var temp = students[index1];
+                        students[index1] = students[index2];
+                        students[index2] = temp;
+                    }
+                }
+                console.log(students);
+            }
+            console.groupEnd();
+
+            // Sort the array by studentID using do/while loop
+            console.group("Sorting by studentID (do/while loop)");
+            var i = 0;
+            do {
+                var j = i + 1;
+                do {
+                    if (students[i].studentID > students[j].studentID) {
+                        var temp = students[i];
+                        students[i] = students[j];
+                        students[j] = temp;
+                    }
+                    j++;
+                } while (j < students.length);
+                console.log(students);
+                i++;
+            } while (i < students.length - 1);
+            console.groupEnd();
+
+            console.log("Final sorted array:");
+            console.log(students);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Problem/Instructions</title>
+</head>
+<body>
+    <script>
+        // function getPersonInfo() {
+        //     let person = {};
+
+
+            var person = {
+                firstname:"",
+                lastname:"",
+                gender:"",
+                birthyear: 0,
+                birthmonth: 0,
+                birthdate: 0,
+            }
+
+            person.firstname = prompt("Enter your First name:");
+            person.lastname = prompt("Enter your Last name:");
+            person.gender = prompt("Enter your Gender:");
+            person.birthyear = parseInt(prompt("Enter your Birth year (ex. 2024):"));
+            person.birthmonth = parseInt(prompt("Enter your Birth month (ex. 1-12):"));
+            person.birthdate = parseInt(prompt("Enter your Birth date (ex. 1-31):"));
+
+            console.log(person);
+
+            // return person;
+        // }
+
+
+        let compute = {
+            monthsAlive: function() {
+                let today = new Date();
+                let birthdate = new Date(person.birthyear, person.birthmonth - 1, person.birthdate);
+                let diff = today - birthdate;
+                let months = diff / (1000 * 60 * 60 * 24 * 30);
+                return Math.floor(months);
+            },
+            daysAlive: function() {
+                let today = new Date();
+                let birthdate = new Date(person.birthyear, person.birthmonth - 1, person.birthdate);
+                let diff = today - birthdate;
+                let days = diff / (1000 * 60 * 60 * 24);    
+                return Math.round(days);
+            }
+        };
+
+        console.log("Months Alive: " + compute.monthsAlive());
+        console.log("Days Alive: " + compute.daysAlive());
+
+
+
+
+    </script>
+</body>
+</html>

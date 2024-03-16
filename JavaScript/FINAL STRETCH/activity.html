@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <p id="demo">This will be updated</p>
+
+
+    <script>
+        function countCharacters(inputString) {
+        let vowels = 0;
+        let consonants = 0;
+        let numbers = 0;
+        let specialCharacters = 0;
+        let whiteSpaces = 0;
+
+        inputString = inputString.toLowerCase();
+
+        for (let i = 0; i < inputString.length; i++) {
+            let char = inputString[i];
+            if (char.match(/[aeiou]/)) {
+                vowels++;
+            } else if (char.match(/[a-z]/)) {
+                consonants++;
+            } else if (char.match(/[0-9]/)) {
+                numbers++;
+            } else if (char.match(/\s/)) {
+                whiteSpaces++;
+            } else {
+                specialCharacters++;
+            }
+        }
+
+        console.log(`Vowels: ${vowels}`);
+        console.log(`Consonants: ${consonants}`);
+        console.log(`Numbers: ${numbers}`);
+        console.log(`Special Characters: ${specialCharacters}`);
+        console.log(`White Spaces: ${whiteSpaces}`);
+
+        let output = `Vowels: ${vowels}<br>`;
+            output += `Consonants: ${consonants}<br>`;
+            output += `Numbers: ${numbers}<br>`;
+            output += `Special Characters: ${specialCharacters}<br>`;
+            output += `White Spaces: ${whiteSpaces}`;
+        
+    document.getElementById("demo").innerHTML = output;
+
+    }
+
+
+    let input = prompt("Enter a string:");
+    countCharacters(input);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .b {
+            border: 3px solid green;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+
+    </style>
+
+    <script>
+
+        var animal = {name: "Rolley", colour:"brown", age: 12};
+
+        var arrayOfThings = [
+            "Paul",
+            animal,
+            22
+        ];
+
+        console.log(arrayOfThings);
+
+            function exampleFunction() {
+                arrayOfThings[1].name = "Tony Stark"
+            console.log(arrayOfThings);
+            }
+
+    </script>
+
+</head>
+
+
+<body>
+    <button class="b" onclick="exampleFunction()">Click me</button>
+    
+</body>
+</html>

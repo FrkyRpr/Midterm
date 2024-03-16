@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<head>
+    <title>Random Math Question</title>
+</head>
+<body>
+    <script>
+        
+        function generateQuestion() {
+            var num1 = Math.floor(Math.random() * 1000) + 1; 
+            var num2 = Math.floor(Math.random() * 1000) + 1;
+            var operators = ['+', '-', '*'];
+            var operator = operators[Math.floor(Math.random() * operators.length)];
+            return num1 + " " + operator + " " + num2;
+        }
+
+        function validateAnswer(question, answer) {
+            var parts = question.split(" ");
+            var num1 = parseInt(parts[0]);
+            var operator = parts[1];
+            var num2 = parseInt(parts[2]);
+            var correctAnswer;
+            switch (operator) {
+                case '+':
+                    correctAnswer = num1 + num2;
+                    break;
+                case '-':
+                    correctAnswer = num1 - num2;
+                    break;
+                case '*':
+                    correctAnswer = num1 * num2;
+                    break;
+            }
+            return parseInt(answer) === correctAnswer;
+        }
+
+        function runQuestionGenerator() {
+            var name = prompt("Please enter your name:");
+            var score = 0;
+
+            for (var i = 0; i < 10; i++) {
+                var question = generateQuestion();
+                var answer = prompt("Question " + (i + 1) + ": " + question);
+                if (validateAnswer(question, answer)) {
+                    score++;
+                }
+            }
+
+            alert(name + "\nTotal Score: " + score);
+        }
+
+        window.onload = function() {
+            runQuestionGenerator();
+        };
+
+
+    </script>
+</body>
+</html>

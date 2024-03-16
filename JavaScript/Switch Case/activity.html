@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Random Math Question Generator</title>
+</head>
+<body>
+    <h1 id="question"></h1>
+    <input type="text" id="answer" placeholder="Enter your answer"><br><br>
+    <button onclick="generateQuestion()" style="font-size: 15px;">Generate</button>
+    <button onclick="checkAnswer()" style="font-size: 15px;">Check Answer</button>
+    <p id="result"></p>
+
+    <script>
+        let correctAnswer;
+
+        function generateQuestion() {
+            let num1 = Math.floor(Math.random() * 1000) + 1;
+            let num2 = Math.floor(Math.random() * 1000) + 1;
+            let operations = ['+', '-', '*', '/', '%'];
+            let operation = operations[Math.floor(Math.random() * operations.length)];
+
+            let question = `${num1} ${operation} ${num2}`;
+            document.getElementById('question').innerText = question;
+
+            switch (operation) {
+                case '+':
+                    correctAnswer = num1 + num2;
+                    break;
+                case '-':
+                    correctAnswer = num1 - num2;
+                    break;
+                case '*':
+                    correctAnswer = num1 * num2;
+                    break;
+                case '/':
+                    correctAnswer = (num1 / num2).toFixed(2);
+                    break;
+                case '%':
+                    correctAnswer = num1 % num2;
+                    break;
+            }
+
+            return correctAnswer;
+        }
+
+        function checkAnswer() {
+            let userAnswer = parseFloat(document.getElementById('answer').value);
+            let roundedUserAnswer = Math.round(userAnswer * 100) / 100; // Round to two decimal places
+            let roundedCorrectAnswer = Math.round(correctAnswer * 100) / 100; // Round to two decimal places
+            let result = document.getElementById('result');
+
+            if (roundedUserAnswer === roundedCorrectAnswer) {
+                alert("CORRECT")
+                // result.innerText = 'CORRECT';
+            } else {
+                alert("WRONG")
+                // result.innerText = 'WRONG';
+            }
+
+ 
+        }
+
+
+        generateQuestion(); // Initial question generation
+    </script>
+</body>
+</html>

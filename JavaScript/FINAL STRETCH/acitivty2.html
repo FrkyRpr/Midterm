@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let randomNum = Math.floor(Math.random() * 1000) + 1;
+        let guesses = [];
+
+        while (true) {
+            let input = prompt(`Guess a number between 1 and 1000\nPrevious guesses: ${guesses.join(', ')}\n${guesses.length > 0 ? 'Hint: ' + (guesses[guesses.length - 1] < randomNum ? 'Higher' : 'Lower') : ''}`);
+            if (!input) {
+                alert("Wrong. Please enter a valid number.");
+                continue;
+            }
+            let guess = parseInt(input);
+            
+            if (isNaN(guess)) {
+                alert("Wrong. Please enter a valid number.");
+                continue;
+            }
+            
+            guesses.push(guess);
+            
+            switch (true) {
+                case guess < randomNum:
+                    alert("Higher");
+                    break;
+                case guess > randomNum:
+                    alert("Lower");
+                    break;
+                case guess === randomNum:
+                    alert("Congratulations! You guessed the correct number.");
+                    alert("Your guesses:\n" + guesses.map((num, index) => `Guess ${index + 1}: ${num} (${num < randomNum ? 'Higher' : num > randomNum ? 'Lower' : 'Correct'})`).join('\n'));
+                    let playAgain = confirm("Play again?");
+                    if (playAgain) {
+                        randomNum = Math.floor(Math.random() * 1000) + 1;
+                        guesses = [];
+                    } else {
+                        window.location.reload();
+                    }
+                    break;
+                default:
+                    alert("Please enter a valid number.");
+            }
+        }
+    </script>
+</body>
+</html>
